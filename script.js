@@ -238,75 +238,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 7. Hero Scroll-Controlled Video Scrubbing
-    (function initScrollVideo() {
-        const container = document.getElementById('hero-scroll-container');
-        const video = document.getElementById('hero-scroll-video');
-        const progressBar = document.getElementById('video-progress-bar');
-        const percentLabel = document.getElementById('scroll-percentage');
-
+    // O vídeo é controlado 100% pela rolagem do mouse/touch:
+    // - Rolar para baixo → vídeo avança
+    // - Rolar para cima → vídeo volta
+    // - A hero fica travada na tela até o vídeo completar
+    (function() {
+        var container = document.getElementById('hero-scroll-container');
+        var video = document.getElementById('hero-scroll-video');
         if (!container || !video) return;
 
-        let duration = 0;
-        let isSeeking = false;
-        let targetFraction = 0;
-        let renderedFraction = 0;
+        // Garante que o vídeo nunca toque sozinho
+        video.pause();
 
-        // Espera metadados do vídeo estarem prontos
-        function onMeta() {
-            duration = video.duration || 0;
+        var ready = false;
+        var lastSetTime = -1;
+
+        function onReady() {
+            ready = true;
+            // Força o primeiro frame a aparecer
+            video.currentTime = 0.001;
+            syncVideoToScroll();
         }
-        video.addEventListener('loadedmetadata', onMeta);
-        if (video.readyState >= 1) onMeta();
 
-        // Sinaliza quando o seek terminou para evitar sobreposição
-        video.addEventListener('seeked', function() { isSeeking = false; });
-        video.addEventListener('seeking', function() { isSeeking = true; });
+        // Espera o vídeo ter dados suficientes para seek
+        if (video.readyState >= 4) {
+            onReady();
+        } else {
+            video.addEventListener('canplaythrough', onReady, { once: true });
+            // Fallback: se loadedmetadata dispara mas canplaythrough não
+            video.addEventListener('loadeddata', function() {
+                if (!ready) onReady();
+            }, { once: true });
+        }
 
-        // Calcula fração 0-1 baseada na posição absoluta do scroll dentro do container
         function getScrollFraction() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var containerTop = container.offsetTop;
-            var scrollRange = container.offsetHeight - window.innerHeight;
-            if (scrollRange <= 0) return 0;
-            var raw = (scrollTop - containerTop) / scrollRange;
-            return Math.max(0, Math.min(1, raw));
+            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            var top = container.offsetTop;
+            var range = container.offsetHeight - window.innerHeight;
+            if (range <= 0) return 0;
+            var f = (scrollY - top) / range;
+            if (f < 0) f = 0;
+            if (f > 1) f = 1;
+            return f;
         }
 
-        // Listener de scroll atualiza o alvo
-        window.addEventListener('scroll', function() {
-            targetFraction = getScrollFraction();
-        }, { passive: true });
+        function syncVideoToScroll() {
+            if (!ready || !video.duration) return;
 
-        // Inicializa
-        targetFraction = getScrollFraction();
+            var fraction = getScrollFraction();
+            var targetTime = fraction * video.duration;
 
-        // Loop de renderização a 60fps
-        function tick() {
-            // Interpolação suave (lerp)
-            var diff = targetFraction - renderedFraction;
-            renderedFraction += diff * 0.12;
-
-            // Snap se já convergiu
-            if (Math.abs(diff) < 0.0003) {
-                renderedFraction = targetFraction;
+            // Só faz seek se a diferença for significativa (evita flickering)
+            if (Math.abs(targetTime - lastSetTime) > 0.01) {
+                video.currentTime = targetTime;
+                lastSetTime = targetTime;
             }
-
-            // Atualiza barra de progresso
-            var pct = Math.round(renderedFraction * 100);
-            if (progressBar) progressBar.style.width = pct + '%';
-            if (percentLabel) percentLabel.textContent = pct + '%';
-
-            // Atualiza currentTime do vídeo (seek)
-            if (duration > 0 && !isSeeking) {
-                var newTime = renderedFraction * duration;
-                if (Math.abs(video.currentTime - newTime) > 0.03) {
-                    video.currentTime = newTime;
-                }
-            }
-
-            requestAnimationFrame(tick);
         }
 
-        requestAnimationFrame(tick);
+        // Escuta scroll em window (funciona com mouse, touchpad, e touch mobile)
+        window.addEventListener('scroll', syncVideoToScroll, { passive: true });
+
+        // Também sincroniza no resize (mudança de viewport)
+        window.addEventListener('resize', syncVideoToScroll, { passive: true });
     })();
 });
