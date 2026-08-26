@@ -123,19 +123,15 @@
     </header>
 
 
-    <!-- ==================== SEÇÃO 2: HERO SECTION COM SCROLL-LOCKED VIDEO PLAYBACK (1.5x SUAVE) ==================== -->
-    <div id="hero-scroll-container" class="relative h-[260vh] bg-slate-50">
-        <!-- Sticky Stage fixado na tela enquanto o usuário rola o container de 260vh -->
-        <div id="hero-sticky-stage" class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-slate-50 border-b border-slate-200">
-            
-            <!-- Linha Fina Vermelha de Detalhe Superior -->
-            <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent-red/60 to-transparent z-20"></div>
+    <!-- ==================== SEÇÃO 2: HERO SECTION COM SCROLL-LOCKED VIDEO ==================== -->
+    <div id="hero-scroll-container" class="relative bg-white" style="height: 300vh;">
+        <div id="hero-sticky-stage" class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden" style="background-color: #FFFFFF;">
 
-            <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full py-4">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
                     
-                    <!-- Coluna Esquerda (Mensagens, Títulos e Indicador de Scroll) -->
-                    <div class="lg:col-span-6 flex flex-col items-start text-left space-y-5">
+                    <!-- Coluna Esquerda (Mensagens e Títulos) -->
+                    <div class="flex flex-col items-start text-left space-y-5">
                         <div class="inline-flex items-center gap-2.5 px-4 py-1.5 border border-slate-200 bg-white shadow-sm rounded-full">
                             <span class="w-2 h-2 rounded-full bg-accent-red animate-pulse"></span>
                             <span class="text-[11px] font-mono tracking-[0.25em] uppercase text-accent-red font-bold">
@@ -143,26 +139,24 @@
                             </span>
                         </div>
 
-                        <!-- Título Principal (H1 Exato) -->
                         <h1 class="font-montserrat text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.15]">
                             Engenharia de Precisão e Sistemas de Acesso Exclusivos.
                         </h1>
 
-                        <!-- Subtítulo Exato -->
                         <p class="text-slate-600 font-normal text-sm sm:text-base leading-relaxed max-w-xl">
                             Transformamos aço em obras de arte arquitetônicas. Design feito à mão, automação de ponta e execução impecável.
                         </p>
 
-                        <!-- Barra de Progresso do Scroll do Vídeo -->
-                        <div class="w-full max-w-md bg-white border border-slate-200 p-3.5 rounded-sm shadow-sm space-y-2">
+                        <!-- Barra de Progresso do Scroll -->
+                        <div class="w-full max-w-sm bg-white border border-slate-200 p-3 rounded-sm shadow-sm space-y-2">
                             <div class="flex items-center justify-between text-[11px] font-mono">
                                 <span class="text-slate-700 font-bold flex items-center gap-1.5">
-                                    <i class="fa-solid fa-computer-mouse text-accent-red animate-bounce"></i> Role a página para avançar o vídeo
+                                    <i class="fa-solid fa-computer-mouse text-accent-red animate-bounce"></i> Role para avançar
                                 </span>
                                 <span id="scroll-percentage" class="text-accent-red font-extrabold">0%</span>
                             </div>
                             <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div id="video-progress-bar" class="h-full bg-accent-red w-0 transition-all duration-75"></div>
+                                <div id="video-progress-bar" class="h-full bg-accent-red rounded-full" style="width: 0%; transition: width 0.08s linear;"></div>
                             </div>
                         </div>
 
@@ -179,42 +173,17 @@
                         </div>
                     </div>
 
-                    <!-- Coluna Direita (Vídeo dos Assets Controlado por Scroll) -->
-                    <div class="lg:col-span-6 relative">
-                        <div class="relative group rounded-sm overflow-hidden bg-slate-950 shadow-2xl border-2 border-slate-300">
-                            
-                            <!-- Badge de Status do Vídeo -->
-                            <div class="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 border-l-2 border-accent-red text-white text-[10px] font-mono uppercase tracking-wider flex items-center gap-2 shadow-md">
-                                <span class="w-2 h-2 rounded-full bg-accent-red animate-ping"></span>
-                                <span id="video-time-badge">0.0s / Carregando...</span>
-                            </div>
-
-                            <!-- Tag de Vídeo HTML5 dos Assets sem controles e mudo -->
-                            <div class="relative h-[340px] sm:h-[420px] md:h-[460px] w-full overflow-hidden bg-slate-950 flex items-center justify-center">
-                                <video id="hero-scroll-video" 
-                                       class="w-full h-full object-cover pointer-events-none" 
-                                       src="assets/hero-video.mp4"
-                                       muted 
-                                       playsinline 
-                                       preload="auto"
-                                       disablepictureinpicture
-                                       controlslist="nodownload nofullscreen noremoteplayback">
-                                </video>
-                            </div>
-
-                            <!-- Legenda no Rodapé do Vídeo -->
-                            <div class="p-3.5 bg-white border-t border-slate-200 flex items-center justify-between">
-                                <div>
-                                    <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block">ALS Automação</span>
-                                    <h4 class="text-xs font-bold text-slate-900 uppercase">Controle de Automação por Scroll</h4>
-                                </div>
-                                <div class="text-slate-500 text-xs font-mono flex items-center gap-1.5">
-                                    <i class="fa-solid fa-arrows-up-down text-accent-red text-xs"></i>
-                                    <span>Rolagem Interativa</span>
-                                </div>
-                            </div>
-
-                        </div>
+                    <!-- Coluna Direita (Vídeo sem bordas, fundo branco, só a máscara) -->
+                    <div class="relative flex items-center justify-center">
+                        <video id="hero-scroll-video" 
+                               class="w-full max-w-[400px] max-h-[360px] object-contain pointer-events-none select-none" 
+                               src="assets/hero-video.mp4"
+                               muted 
+                               playsinline 
+                               preload="auto"
+                               disablepictureinpicture
+                               style="background: transparent;">
+                        </video>
                     </div>
 
                 </div>
@@ -222,8 +191,6 @@
 
         </div>
     </div>
-
-    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
 
 
     <!-- ==================== SEÇÃO: CATEGORIAS DE FABRICAÇÃO ALS (COM O VÍDEO / GIF NO FUNDO) ==================== -->

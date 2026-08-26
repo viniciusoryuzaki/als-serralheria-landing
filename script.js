@@ -237,79 +237,76 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Hero Scroll-Controlled Video Scrubbing (Locked in viewport until completion)
-    const heroContainer = document.getElementById('hero-scroll-container');
-    const heroVideo = document.getElementById('hero-scroll-video');
-    const videoProgressBar = document.getElementById('video-progress-bar');
-    const scrollPercentage = document.getElementById('scroll-percentage');
-    const videoTimeBadge = document.getElementById('video-time-badge');
+    // 7. Hero Scroll-Controlled Video Scrubbing
+    (function initScrollVideo() {
+        const container = document.getElementById('hero-scroll-container');
+        const video = document.getElementById('hero-scroll-video');
+        const progressBar = document.getElementById('video-progress-bar');
+        const percentLabel = document.getElementById('scroll-percentage');
 
-    if (heroContainer && heroVideo) {
-        let videoDuration = 0;
-        let targetProgress = 0;
-        let currentProgress = 0;
+        if (!container || !video) return;
 
-        // Pré-carrega metadados do vídeo
-        heroVideo.addEventListener('loadedmetadata', () => {
-            videoDuration = heroVideo.duration;
-            if (videoTimeBadge && videoDuration) {
-                videoTimeBadge.textContent = `0.0s / ${videoDuration.toFixed(1)}s`;
-            }
-        });
+        let duration = 0;
+        let isSeeking = false;
+        let targetFraction = 0;
+        let renderedFraction = 0;
 
-        if (heroVideo.readyState >= 1) {
-            videoDuration = heroVideo.duration;
+        // Espera metadados do vídeo estarem prontos
+        function onMeta() {
+            duration = video.duration || 0;
+        }
+        video.addEventListener('loadedmetadata', onMeta);
+        if (video.readyState >= 1) onMeta();
+
+        // Sinaliza quando o seek terminou para evitar sobreposição
+        video.addEventListener('seeked', function() { isSeeking = false; });
+        video.addEventListener('seeking', function() { isSeeking = true; });
+
+        // Calcula fração 0-1 baseada na posição absoluta do scroll dentro do container
+        function getScrollFraction() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var containerTop = container.offsetTop;
+            var scrollRange = container.offsetHeight - window.innerHeight;
+            if (scrollRange <= 0) return 0;
+            var raw = (scrollTop - containerTop) / scrollRange;
+            return Math.max(0, Math.min(1, raw));
         }
 
-        // Calcula o progresso exato da rolagem dentro do container de 320vh
-        function calculateScrollProgress() {
-            const rect = heroContainer.getBoundingClientRect();
-            const scrollDistance = heroContainer.offsetHeight - window.innerHeight;
-            
-            if (scrollDistance <= 0) return 0;
-            
-            const progress = -rect.top / scrollDistance;
-            return Math.max(0, Math.min(1, progress));
-        }
+        // Listener de scroll atualiza o alvo
+        window.addEventListener('scroll', function() {
+            targetFraction = getScrollFraction();
+        }, { passive: true });
 
-        function onScroll() {
-            targetProgress = calculateScrollProgress();
-        }
+        // Inicializa
+        targetFraction = getScrollFraction();
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
+        // Loop de renderização a 60fps
+        function tick() {
+            // Interpolação suave (lerp)
+            var diff = targetFraction - renderedFraction;
+            renderedFraction += diff * 0.12;
 
-        // Loop contínuo com requestAnimationFrame para sincronizar cada frame com a rolagem
-        function renderVideoScroll() {
-            // Interpolação responsiva ultra-suave
-            currentProgress += (targetProgress - currentProgress) * 0.4;
-
-            if (Math.abs(targetProgress - currentProgress) < 0.0005) {
-                currentProgress = targetProgress;
+            // Snap se já convergiu
+            if (Math.abs(diff) < 0.0003) {
+                renderedFraction = targetFraction;
             }
 
-            const percent = Math.round(currentProgress * 100);
-            if (videoProgressBar) {
-                videoProgressBar.style.width = `${percent}%`;
-            }
-            if (scrollPercentage) {
-                scrollPercentage.textContent = `${percent}%`;
-            }
+            // Atualiza barra de progresso
+            var pct = Math.round(renderedFraction * 100);
+            if (progressBar) progressBar.style.width = pct + '%';
+            if (percentLabel) percentLabel.textContent = pct + '%';
 
-            const duration = heroVideo.duration || videoDuration;
-            if (duration && duration > 0) {
-                const targetTime = currentProgress * duration;
-                if (!heroVideo.seeking && Math.abs(heroVideo.currentTime - targetTime) > 0.015) {
-                    heroVideo.currentTime = targetTime;
-                }
-                if (videoTimeBadge) {
-                    videoTimeBadge.textContent = `${heroVideo.currentTime.toFixed(1)}s / ${duration.toFixed(1)}s`;
+            // Atualiza currentTime do vídeo (seek)
+            if (duration > 0 && !isSeeking) {
+                var newTime = renderedFraction * duration;
+                if (Math.abs(video.currentTime - newTime) > 0.03) {
+                    video.currentTime = newTime;
                 }
             }
 
-            requestAnimationFrame(renderVideoScroll);
+            requestAnimationFrame(tick);
         }
 
-        requestAnimationFrame(renderVideoScroll);
-    }
+        requestAnimationFrame(tick);
+    })();
 });
