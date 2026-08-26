@@ -237,46 +237,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Hero Scroll-Controlled YouTube Video Playback
-    const ytIframe = document.getElementById('hero-youtube-video');
+    // 7. Hero Scroll-Controlled Video Scrubbing (Locked in viewport until completion)
+    const heroContainer = document.getElementById('hero-scroll-container');
     const heroVideo = document.getElementById('hero-scroll-video');
-    const videoStatusBadge = document.getElementById('video-status-badge');
-    const videoIndicator = document.getElementById('video-indicator');
+    const videoProgressBar = document.getElementById('video-progress-bar');
+    const scrollPercentage = document.getElementById('scroll-percentage');
+    const videoTimeBadge = document.getElementById('video-time-badge');
 
-    function sendYTCommand(command, args = '') {
-        if (ytIframe && ytIframe.contentWindow) {
-            ytIframe.contentWindow.postMessage(JSON.stringify({
-                event: 'command',
-                func: command,
-                args: args
-            }), '*');
-        }
-    }
+    if (heroContainer && heroVideo) {
+        let videoDuration = 0;
+        let targetProgress = 0;
+        let currentProgress = 0;
 
-    function checkScrollVideo() {
-        const scrollY = window.scrollY || window.pageYOffset;
-        
-        if (scrollY <= 15) {
-            // Quando estiver no topo
-            if (heroVideo) {
-                heroVideo.pause();
-                heroVideo.currentTime = 0;
+        // Pré-carrega metadados do vídeo
+        heroVideo.addEventListener('loadedmetadata', () => {
+            videoDuration = heroVideo.duration;
+            if (videoTimeBadge && videoDuration) {
+                videoTimeBadge.textContent = `0.0s / ${videoDuration.toFixed(1)}s`;
             }
-            sendYTCommand('pauseVideo');
-            if (videoStatusBadge) videoStatusBadge.textContent = "Vídeo Oficial ALS";
-            if (videoIndicator) videoIndicator.innerHTML = '<i class="fa-brands fa-youtube text-accent-red text-sm"></i> <span>ALS Automação</span>';
-        } else {
-            // Ao rolar para baixo
-            if (heroVideo && heroVideo.paused) {
-                heroVideo.play().catch(() => {});
-            }
-            sendYTCommand('playVideo');
-            if (videoStatusBadge) videoStatusBadge.textContent = "Reproduzindo";
-            if (videoIndicator) videoIndicator.innerHTML = '<i class="fa-solid fa-play text-accent-red text-[10px]"></i> <span>Em Reprodução</span>';
-        }
-    }
+        });
 
-    window.addEventListener('scroll', checkScrollVideo, { passive: true });
-    // Executa verificação inicial após carregamento do iframe
-    setTimeout(checkScrollVideo, 1000);
+        if (heroVideo.readyState >= 1) {
+            videoDuration = heroVideo.duration;
+        }
+
+        // Calcula o progresso exato da rolagem dentro do container de 320vh
+        function calculateScrollProgress() {
+            const rect = heroContainer.getBoundingClientRect();
+            const scrollDistance = heroContainer.offsetHeight - window.innerHeight;
+            
+            if (scrollDistance <= 0) return 0;
+            
+            const progress = -rect.top / scrollDistance;
+            return Math.max(0, Math.min(1, progress));
+        }
+
+        function onScroll() {
+            targetProgress = calculateScrollProgress();
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Loop contínuo com requestAnimationFrame para sincronizar cada frame com a rolagem
+        function renderVideoScroll() {
+            // Interpolação suave para rolagem fluida
+            currentProgress += (targetProgress - currentProgress) * 0.3;
+
+            if (Math.abs(targetProgress - currentProgress) < 0.001) {
+                currentProgress = targetProgress;
+            }
+
+            const percent = Math.round(currentProgress * 100);
+            if (videoProgressBar) {
+                videoProgressBar.style.width = `${percent}%`;
+            }
+            if (scrollPercentage) {
+                scrollPercentage.textContent = `${percent}%`;
+            }
+
+            const duration = heroVideo.duration || videoDuration;
+            if (duration && duration > 0) {
+                const targetTime = currentProgress * duration;
+                if (!heroVideo.seeking && Math.abs(heroVideo.currentTime - targetTime) > 0.02) {
+                    heroVideo.currentTime = targetTime;
+                }
+                if (videoTimeBadge) {
+                    videoTimeBadge.textContent = `${heroVideo.currentTime.toFixed(1)}s / ${duration.toFixed(1)}s`;
+                }
+            }
+
+            requestAnimationFrame(renderVideoScroll);
+        }
+
+        requestAnimationFrame(renderVideoScroll);
+    }
 });
