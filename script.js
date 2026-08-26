@@ -281,10 +281,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Loop contínuo com requestAnimationFrame para sincronizar cada frame com a rolagem
         function renderVideoScroll() {
-            // Interpolação suave para rolagem fluida
-            currentProgress += (targetProgress - currentProgress) * 0.3;
+            // Interpolação responsiva ultra-suave
+            currentProgress += (targetProgress - currentProgress) * 0.4;
 
-            if (Math.abs(targetProgress - currentProgress) < 0.001) {
+            if (Math.abs(targetProgress - currentProgress) < 0.0005) {
                 currentProgress = targetProgress;
             }
 
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const duration = heroVideo.duration || videoDuration;
             if (duration && duration > 0) {
                 const targetTime = currentProgress * duration;
-                if (!heroVideo.seeking && Math.abs(heroVideo.currentTime - targetTime) > 0.02) {
+                if (!heroVideo.seeking && Math.abs(heroVideo.currentTime - targetTime) > 0.015) {
                     heroVideo.currentTime = targetTime;
                 }
                 if (videoTimeBadge) {
