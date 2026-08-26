@@ -1,0 +1,256 @@
+/* ==========================================================================
+   ALS SERRALHERIA E AUTOMAÇÃO - WHITE LUXURY THEME STYLESHEET
+   ========================================================================== */
+
+/* 1. VARIÁVEIS DE DESIGN E CORES (TEMA BRANCO / LUXURY) */
+:root {
+  --bg-white: #FFFFFF;
+  --bg-subtle: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F1F5F9;
+  --accent-red: #D91E28;
+  --accent-red-hover: #B9151F;
+  --accent-red-glow: rgba(217, 30, 40, 0.25);
+  --text-dark: #0F172A;
+  --text-slate: #334155;
+  --text-muted: #64748B;
+  --border-light: #E2E8F0;
+  --border-card: #E5E7EB;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* 2. RESET & BASE */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-inter);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+}
+
+body {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* 3. UTILITÁRIOS CUSTOMIZADOS */
+.bg-light-bg { background-color: var(--bg-white); }
+.bg-light-subtle { background-color: var(--bg-subtle); }
+.bg-light-card { background-color: var(--bg-card); }
+.bg-accent-red { background-color: var(--accent-red); }
+.bg-accent-red-hover { background-color: var(--accent-red-hover); }
+.text-accent-red { color: var(--accent-red) !important; }
+.border-accent-red { border-color: var(--accent-red) !important; }
+
+.font-sans { font-family: var(--font-inter); }
+.font-montserrat { font-family: var(--font-montserrat); }
+
+/* Nome da Empresa em Destaque Vermelho */
+.brand-name-red {
+  color: var(--accent-red) !important;
+  font-weight: 800;
+}
+
+/* 4. BOTÕES E CTAs (VERMELHO VIVO EXCLUSIVO) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-red);
+  color: #FFFFFF !important;
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 18px var(--accent-red-glow);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-red-hover);
+  box-shadow: 0 6px 25px rgba(217, 30, 40, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 5. ANIMAÇÃO DE ZOOM SUAVE NA HERO */
+@keyframes subtleZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+
+.animate-subtle-zoom {
+  animation: subtleZoom 25s infinite alternate ease-in-out;
+}
+
+/* 6. GALERIA DE PROJETOS TEMA BRANCO */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #0F172A;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+/* 7. CARDS DE CATEGORIAS (FUNDO TRANSPARENTE E BORDAS BRANCAS) */
+.category-box {
+  background-color: transparent !important;
+  border: 1.5px solid #FFFFFF !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.category-box:hover {
+  transform: translateY(-6px);
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15), 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+/* 8. ABAS DE FILTRO DA GALERIA */
+.gallery-tab {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-tab.active {
+  background-color: var(--accent-red) !important;
+  color: #FFFFFF !important;
+  border-color: var(--accent-red) !important;
+}
+
+/* 9. HEADER COM FUNDO BRANCO TOTALMENTE SÓLIDO (100% OPACO) */
+#main-header,
+#top-bar {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  opacity: 1 !important;
+}
+
+#main-header.scrolled {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* 10. CAMPOS DE FORMULÁRIO TEMA BRANCO */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select {
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
+  font-family: var(--font-inter);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(217, 30, 40, 0.12);
+  outline: none;
+}
+
+.radio-card:has(input[type="radio"]:checked) {
+  border-color: var(--accent-red);
+  background-color: rgba(217, 30, 40, 0.04);
+}
+
+/* 11. ZONA DE DROP FILE UPLOAD */
+#drop-zone {
+  transition: all 0.3s ease;
+}
+
+#drop-zone.dragover {
+  border-color: var(--accent-red);
+  background-color: rgba(217, 30, 40, 0.05);
+}
+
+/* 12. MAPA INTERATIVO */
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(10%) contrast(105%);
+  transition: filter 0.3s ease;
+}
+
+.map-container:hover iframe {
+  filter: grayscale(0%) contrast(100%);
+}
+
+/* 13. SCROLLBAR ESTILIZADA */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
+}
+
+/* 14. RESPONSIVIDADE */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+  }
+}
