@@ -123,12 +123,13 @@
     </header>
 
 
-    <!-- ==================== SEÇÃO 2: HERO SECTION COM SCROLL-LOCKED VIDEO ==================== -->
-    <div id="hero-scroll-container" class="relative bg-white" style="height: 300vh;">
+    <!-- ==================== SEÇÃO 2: HERO SECTION COM MÁSCARA CONTROLADA POR SCROLL ==================== -->
+    <section id="hero-scroll-container" class="relative w-full bg-white" style="height: 300vh; background-color: #FFFFFF;">
+        <!-- Container Sticky fixo na tela durante a rolagem de 300vh -->
         <div id="hero-sticky-stage" class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden" style="background-color: #FFFFFF;">
 
             <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     
                     <!-- Coluna Esquerda (Mensagens e Títulos) -->
                     <div class="flex flex-col items-start text-left space-y-5">
@@ -147,7 +148,6 @@
                             Transformamos aço em obras de arte arquitetônicas. Design feito à mão, automação de ponta e execução impecável.
                         </p>
 
-
                         <!-- Botões de Ação -->
                         <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
                             <a href="#categorias" class="w-full sm:w-auto btn-primary inline-flex items-center justify-center text-xs uppercase tracking-[0.2em] px-7 py-4 bg-accent-red text-white font-bold hover:bg-accent-red-hover transition-all duration-300 shadow-md group rounded-sm">
@@ -161,16 +161,16 @@
                         </div>
                     </div>
 
-                    <!-- Coluna Direita (Vídeo sem bordas, fundo branco, só a máscara) -->
-                    <div class="relative flex items-center justify-center">
+                    <!-- Coluna Direita (Vídeo da Máscara de Solda: sem bordas, fundo integrado) -->
+                    <div class="relative flex items-center justify-center w-full">
                         <video id="hero-scroll-video" 
-                               class="w-full max-w-[400px] max-h-[360px] object-contain pointer-events-none select-none" 
+                               class="w-full max-w-[340px] sm:max-w-[380px] h-auto object-contain pointer-events-none select-none" 
                                src="assets/hero-video.mp4"
                                muted 
                                playsinline 
                                preload="auto"
                                disablepictureinpicture
-                               style="background: transparent;">
+                               style="background: transparent; mix-blend-mode: multiply;">
                         </video>
                     </div>
 
@@ -178,7 +178,7 @@
             </div>
 
         </div>
-    </div>
+    </section>
 
 
     <!-- ==================== SEÇÃO: CATEGORIAS DE FABRICAÇÃO ALS (COM O VÍDEO / GIF NO FUNDO) ==================== -->

@@ -237,68 +237,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Hero Scroll-Controlled Video Scrubbing
-    // O vídeo é controlado 100% pela rolagem do mouse/touch:
-    // - Rolar para baixo → vídeo avança
-    // - Rolar para cima → vídeo volta
-    // - A hero fica travada na tela até o vídeo completar
-    (function() {
-        var container = document.getElementById('hero-scroll-container');
-        var video = document.getElementById('hero-scroll-video');
+    // 7. VIDEO SCROLL SCRUBBING ENGINE (MÁSCARA DE SOLDA ALS)
+    // Refatoração técnica:
+    // - Referência ao container e ao elemento de vídeo
+    // - EventListener de scroll na janela
+    // - Cálculo matemático da fração do scroll (0.0 a 1.0) dentro do container de 300vh
+    // - video.currentTime = (fraçãoDoScroll * video.duration)
+    // - requestAnimationFrame para garantir fluidez perfeita ao descer e subir
+    (function initVideoScrollScrubbing() {
+        const container = document.getElementById('hero-scroll-container');
+        const video = document.getElementById('hero-scroll-video');
+
         if (!container || !video) return;
 
-        // Garante que o vídeo nunca toque sozinho
+        // Garante que o vídeo fique pausado (sem tocar sozinho)
         video.pause();
 
-        var ready = false;
-        var lastSetTime = -1;
+        let isTicking = false;
+        let targetTime = 0;
 
-        function onReady() {
-            ready = true;
-            // Força o primeiro frame a aparecer
-            video.currentTime = 0.001;
-            syncVideoToScroll();
-        }
+        function updateVideoProgress() {
+            if (!video.duration || isNaN(video.duration)) return;
 
-        // Espera o vídeo ter dados suficientes para seek
-        if (video.readyState >= 4) {
-            onReady();
-        } else {
-            video.addEventListener('canplaythrough', onReady, { once: true });
-            // Fallback: se loadedmetadata dispara mas canplaythrough não
-            video.addEventListener('loadeddata', function() {
-                if (!ready) onReady();
-            }, { once: true });
-        }
+            const rect = container.getBoundingClientRect();
+            const totalScrollRange = container.offsetHeight - window.innerHeight;
 
-        function getScrollFraction() {
-            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            var top = container.offsetTop;
-            var range = container.offsetHeight - window.innerHeight;
-            if (range <= 0) return 0;
-            var f = (scrollY - top) / range;
-            if (f < 0) f = 0;
-            if (f > 1) f = 1;
-            return f;
-        }
+            if (totalScrollRange <= 0) return;
 
-        function syncVideoToScroll() {
-            if (!ready || !video.duration) return;
+            // Calcula a fração do scroll do usuário dentro da sessão (0.0 no topo até 1.0 no fim)
+            const rawFraction = -rect.top / totalScrollRange;
+            const scrollFraction = Math.max(0, Math.min(1, rawFraction));
 
-            var fraction = getScrollFraction();
-            var targetTime = fraction * video.duration;
+            // Vincula a fração de scroll diretamente ao tempo do vídeo:
+            // video.currentTime = (fraçãoDoScroll * video.duration)
+            targetTime = scrollFraction * video.duration;
 
-            // Só faz seek se a diferença for significativa (evita flickering)
-            if (Math.abs(targetTime - lastSetTime) > 0.01) {
-                video.currentTime = targetTime;
-                lastSetTime = targetTime;
+            // Utiliza requestAnimationFrame para renderização suave a 60fps/120fps
+            if (!isTicking) {
+                isTicking = true;
+                window.requestAnimationFrame(() => {
+                    if (video.duration && !isNaN(targetTime)) {
+                        video.currentTime = targetTime;
+                    }
+                    isTicking = false;
+                });
             }
         }
 
-        // Escuta scroll em window (funciona com mouse, touchpad, e touch mobile)
-        window.addEventListener('scroll', syncVideoToScroll, { passive: true });
+        // Eventos para garantir que o vídeo esteja pronto e sincronizado
+        video.addEventListener('loadedmetadata', updateVideoProgress);
+        video.addEventListener('loadeddata', updateVideoProgress);
+        video.addEventListener('canplay', updateVideoProgress);
+        
+        if (video.readyState >= 2) {
+            updateVideoProgress();
+        }
 
-        // Também sincroniza no resize (mudança de viewport)
-        window.addEventListener('resize', syncVideoToScroll, { passive: true });
+        // Monitora o scroll e o resize da janela
+        window.addEventListener('scroll', updateVideoProgress, { passive: true });
+        window.addEventListener('resize', updateVideoProgress, { passive: true });
+
+        // Chamada inicial
+        updateVideoProgress();
     })();
 });
