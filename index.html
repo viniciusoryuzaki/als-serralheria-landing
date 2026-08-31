@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALS Serralheria e Automação | Engenharia de Precisão & Sistemas de Acesso Exclusivos</title>
-    <meta name="description" content="ALS Serralheria e Automação - Transformamos aço em obras de arte arquitetônicas. Fabricação de portões automáticos, esquadrias metálicas, corrimões e toldos sob medida em Curitiba e região.">
-    
+    <meta name="description"
+        content="ALS Serralheria e Automação - Transformamos aço em obras de arte arquitetônicas. Fabricação de portões automáticos, esquadrias metálicas, corrimões e toldos sob medida em Curitiba e região.">
+
     <!-- Google Fonts: Montserrat & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -39,19 +43,26 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-white text-slate-900 font-sans antialiased selection:bg-accent-red selection:text-white overflow-x-hidden">
+
+<body
+    class="bg-white text-slate-900 font-sans antialiased selection:bg-accent-red selection:text-white overflow-x-hidden">
 
     <!-- ==================== TOP BAR INFORMATIVO (100% BRANCO) ==================== -->
-    <div id="top-bar" class="bg-white text-slate-800 text-[11px] py-2.5 px-6 border-b border-slate-200" style="background-color: #ffffff !important; background: #ffffff !important;">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left font-mono">
+    <div id="top-bar"
+        class="animate-fade-in-up delay-100 bg-white text-slate-800 text-[11px] py-2.5 px-6 border-b border-slate-200"
+        style="background-color: #ffffff !important; background: #ffffff !important;">
+        <div
+            class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left font-mono">
             <div class="flex items-center gap-3">
                 <span class="text-accent-red font-bold">●</span>
-                <span class="font-medium text-slate-700">Rua Professor José Demeterco, 190 - Cajuru, Curitiba - PR</span>
+                <span class="font-medium text-slate-700">Rua Professor José Demeterco, 190 - Cajuru, Curitiba -
+                    PR</span>
                 <span class="hidden md:inline text-slate-300">|</span>
                 <span class="hidden md:inline text-slate-500 font-semibold">Atendemos Curitiba e regiões próximas</span>
             </div>
             <div class="flex items-center gap-4">
-                <a href="https://wa.me/55419999999" target="_blank" class="text-slate-900 hover:text-accent-red transition-colors flex items-center gap-1.5 font-bold">
+                <a href="https://wa.me/55419999999" target="_blank"
+                    class="text-slate-900 hover:text-accent-red transition-colors flex items-center gap-1.5 font-bold">
                     <i class="fa-brands fa-whatsapp text-accent-red text-sm"></i>
                     <span>Entre em contato: 41 9999999</span>
                 </a>
@@ -60,44 +71,55 @@
     </div>
 
     <!-- ==================== SEÇÃO 1: HEADER (CABEÇALHO 100% BRANCO) ==================== -->
-    <header id="main-header" class="sticky top-0 left-0 w-full z-50 transition-all duration-300 border-b border-slate-200 bg-white shadow-sm" style="background-color: #ffffff !important; background: #ffffff !important;">
+    <header id="main-header"
+        class="animate-fade-in-up delay-200 sticky top-0 left-0 w-full z-50 transition-all duration-300 border-b border-slate-200 bg-white shadow-sm"
+        style="background-color: #ffffff !important; background: #ffffff !important;">
         <div class="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
             <!-- Lado Esquerdo: Logomarca ALS (PNG Transparente com Nome da Empresa em Vermelho) -->
             <a href="#" class="flex items-center gap-3 group focus:outline-none">
-                <div class="relative w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div
+                    class="relative w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                     <img src="assets/logo.png" alt="ALS Serralheria e Automação" class="w-full h-full object-contain">
                 </div>
                 <div class="flex flex-col">
                     <!-- Nome da empresa em VERMELHO -->
-                    <span class="font-montserrat font-extrabold text-xl tracking-wider text-accent-red uppercase transition-colors">ALS</span>
-                    <span class="text-[9px] tracking-[0.25em] text-accent-red uppercase font-bold">Serralheria & Automação</span>
+                    <span
+                        class="font-montserrat font-extrabold text-xl tracking-wider text-accent-red uppercase transition-colors">ALS</span>
+                    <span class="text-[9px] tracking-[0.25em] text-accent-red uppercase font-bold">Serralheria &
+                        Automação</span>
                 </div>
             </a>
 
             <!-- Centro/Direita: Menu de Navegação & Botão de Contato com +3px de espaçamento -->
             <div class="hidden md:flex items-center">
-                <nav class="flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700">
+                <nav
+                    class="flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700">
                     <a href="#categorias" class="hover:text-accent-red transition-colors py-2 relative group">
                         Categorias
-                        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#projetos" class="hover:text-accent-red transition-colors py-2 relative group">
                         Projetos
-                        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#atelie" class="hover:text-accent-red transition-colors py-2 relative group">
                         O Ateliê
-                        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#localizacao" class="hover:text-accent-red transition-colors py-2 relative group">
                         Localização
-                        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </nav>
 
                 <!-- Ação: Botão Vermelho Header com +3px de espaçamento adicional (ml-[35px]) -->
                 <div class="hidden lg:flex items-center ml-[35px]">
-                    <a href="https://wa.me/55419999999" target="_blank" class="btn-primary text-xs uppercase tracking-wider px-6 py-3.5 bg-accent-red text-white font-bold hover:bg-accent-red-hover transition-all duration-300 shadow-md flex items-center gap-2">
+                    <a href="https://wa.me/55419999999" target="_blank"
+                        class="btn-primary text-xs uppercase tracking-wider px-6 py-3.5 bg-accent-red text-white font-bold hover:bg-accent-red-hover transition-all duration-300 shadow-md flex items-center gap-2">
                         <i class="fa-brands fa-whatsapp text-sm"></i>
                         <span>Entre em contato conosco: 41 9999999</span>
                     </a>
@@ -105,18 +127,23 @@
             </div>
 
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-slate-800 text-2xl focus:outline-none p-2" aria-label="Abrir Menu">
+            <button id="mobile-menu-btn" class="md:hidden text-slate-800 text-2xl focus:outline-none p-2"
+                aria-label="Abrir Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-8 flex flex-col space-y-6 text-center tracking-widest uppercase text-sm shadow-xl">
-            <a href="#categorias" class="mobile-nav-link text-slate-700 hover:text-accent-red font-semibold">Categorias</a>
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-8 flex flex-col space-y-6 text-center tracking-widest uppercase text-sm shadow-xl">
+            <a href="#categorias"
+                class="mobile-nav-link text-slate-700 hover:text-accent-red font-semibold">Categorias</a>
             <a href="#projetos" class="mobile-nav-link text-slate-700 hover:text-accent-red font-semibold">Projetos</a>
             <a href="#atelie" class="mobile-nav-link text-slate-700 hover:text-accent-red font-semibold">O Ateliê</a>
-            <a href="#localizacao" class="mobile-nav-link text-slate-700 hover:text-accent-red font-semibold">Localização</a>
-            <a href="https://wa.me/55419999999" target="_blank" class="mobile-nav-link inline-block bg-accent-red text-white py-4 font-bold hover:bg-accent-red-hover transition-colors shadow-md">
+            <a href="#localizacao"
+                class="mobile-nav-link text-slate-700 hover:text-accent-red font-semibold">Localização</a>
+            <a href="https://wa.me/55419999999" target="_blank"
+                class="mobile-nav-link inline-block bg-accent-red text-white py-4 font-bold hover:bg-accent-red-hover transition-colors shadow-md">
                 Entre em contato conosco: 41 9999999
             </a>
         </div>
@@ -124,56 +151,77 @@
 
 
     <!-- ==================== SEÇÃO 2: HERO SECTION COM MÁSCARA CONTROLADA POR SCROLL ==================== -->
-    <section id="hero-scroll-container" class="relative w-full bg-white" style="height: 300vh; background-color: #FFFFFF;">
+    <section id="hero-scroll-container" class="relative w-full bg-white"
+        style="height: 300vh; background-color: #FFFFFF;">
         <!-- Container Sticky fixo na tela durante a rolagem de 300vh -->
-        <div id="hero-sticky-stage" class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden" style="background-color: #FFFFFF;">
+        <div id="hero-sticky-stage"
+            class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
+            style="background-color: #FFFFFF;">
 
             <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    
+
                     <!-- Coluna Esquerda (Mensagens e Títulos) -->
                     <div class="flex flex-col items-start text-left space-y-5">
-                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 border border-slate-200 bg-white shadow-sm rounded-full">
+                        <div
+                            class="animate-fade-in-up delay-300 inline-flex items-center gap-2.5 px-4 py-1.5 border border-slate-200 bg-white shadow-sm rounded-full">
                             <span class="w-2 h-2 rounded-full bg-accent-red animate-pulse"></span>
                             <span class="text-[11px] font-mono tracking-[0.25em] uppercase text-accent-red font-bold">
                                 ALS Serralheria &bull; Curitiba
                             </span>
                         </div>
 
-                        <h1 class="font-montserrat text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.15]">
+                        <h1
+                            class="animate-fade-in-up delay-400 font-montserrat text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.15]">
                             Engenharia de Precisão e Sistemas de Acesso Exclusivos.
                         </h1>
 
-                        <p class="text-slate-600 font-normal text-sm sm:text-base leading-relaxed max-w-xl">
-                            Transformamos aço em obras de arte arquitetônicas. Design feito à mão, automação de ponta e execução impecável.
+                        <p
+                            class="animate-fade-in-up delay-500 text-slate-600 font-normal text-sm sm:text-base leading-relaxed max-w-xl">
+                            Transformamos aço em obras de arte arquitetônicas. Design feito à mão, automação de ponta e
+                            execução impecável.
                         </p>
 
                         <!-- Botões de Ação -->
-                        <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
-                            <a href="#categorias" class="w-full sm:w-auto btn-primary inline-flex items-center justify-center text-xs uppercase tracking-[0.2em] px-7 py-4 bg-accent-red text-white font-bold hover:bg-accent-red-hover transition-all duration-300 shadow-md group rounded-sm">
+                        <div
+                            class="animate-fade-in-up delay-600 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
+                            <a href="#categorias"
+                                class="w-full sm:w-auto btn-primary inline-flex items-center justify-center text-xs uppercase tracking-[0.2em] px-7 py-4 bg-accent-red text-white font-bold hover:bg-accent-red-hover transition-all duration-300 shadow-md group rounded-sm">
                                 <span>Explorar Categorias</span>
-                                <i class="fa-solid fa-arrow-right ml-2.5 transform group-hover:translate-x-1 transition-transform"></i>
+                                <i
+                                    class="fa-solid fa-arrow-right ml-2.5 transform group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <a href="https://wa.me/55419999999" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center text-xs uppercase tracking-[0.15em] px-6 py-4 bg-white border border-slate-300 text-slate-900 font-bold hover:border-accent-red hover:text-accent-red transition-all duration-300 shadow-sm rounded-sm">
+                            <a href="https://wa.me/55419999999" target="_blank"
+                                class="w-full sm:w-auto inline-flex items-center justify-center text-xs uppercase tracking-[0.15em] px-6 py-4 bg-white border border-slate-300 text-slate-900 font-bold hover:border-accent-red hover:text-accent-red transition-all duration-300 shadow-sm rounded-sm">
                                 <i class="fa-brands fa-whatsapp mr-2 text-accent-red text-base"></i>
                                 <span>Contato: 41 9999999</span>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Coluna Direita (Vídeo da Máscara de Solda: sem bordas, fundo integrado) -->
-                    <div class="relative flex items-center justify-center w-full">
-                        <video id="hero-scroll-video" 
-                               class="w-full max-w-[340px] sm:max-w-[380px] h-auto object-contain pointer-events-none select-none" 
-                               src="assets/hero-video.mp4"
-                               muted 
-                               playsinline 
-                               preload="auto"
-                               disablepictureinpicture
-                               style="background: transparent; mix-blend-mode: multiply;">
-                        </video>
+                    <!-- Coluna Direita (Vídeo da Máscara de Solda ALS Controlado por Scroll) -->
+                    <div class="animate-fade-in-up delay-500 relative flex items-center justify-center w-full">
+                        <div
+                            class="relative flex items-center justify-center w-full max-w-[360px] sm:max-w-[420px] md:max-w-[460px] aspect-square">
+                            <video id="hero-video-smooth"
+                                class="hero-video-smooth w-full h-full object-contain pointer-events-none select-none"
+                                src="assets/hero-video-smooth.mp4" muted playsinline webkit-playsinline preload="auto"
+                                disablepictureinpicture style="background: transparent; mix-blend-mode: multiply;">
+                                <source src="assets/hero-video-smooth.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
 
+                </div>
+            </div>
+
+            <!-- Indicador sutil de scroll para guiar o usuário -->
+            <div id="hero-scroll-hint"
+                class="animate-fade-in-up delay-700 absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 pointer-events-none transition-opacity duration-500 z-20">
+                <span class="text-[10px] uppercase font-mono tracking-[0.25em] text-slate-500 font-semibold">Role a tela
+                    para baixo</span>
+                <div class="w-5 h-8 border-2 border-slate-300 rounded-full flex justify-center pt-1.5">
+                    <div class="w-1.5 h-2 bg-accent-red rounded-full animate-bounce"></div>
                 </div>
             </div>
 
@@ -185,108 +233,145 @@
     <section id="categorias" class="relative py-28 md:py-36 overflow-hidden bg-slate-950">
         <!-- Fundo: GIF Animado escurecido com transições suaves -->
         <div class="absolute inset-0 z-0">
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGN0bWx0YzNzeng4NmhpMmtraXdtZ3huZnJ6eWVnNmUyNmNoY2FiMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/58Fr6ZlOgeSCLGKNZA/giphy.gif" 
-                 alt="ALS Especialidades e Categorias de Serralheria" 
-                 class="w-full h-full object-cover filter brightness-50 contrast-125">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGN0bWx0YzNzeng4NmhpMmtraXdtZ3huZnJ6eWVnNmUyNmNoY2FiMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/58Fr6ZlOgeSCLGKNZA/giphy.gif"
+                alt="ALS Especialidades e Categorias de Serralheria"
+                class="w-full h-full object-cover filter brightness-50 contrast-125">
             <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/85"></div>
             <!-- Transições suaves nas bordas -->
-            <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none"></div>
+            <div
+                class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-slate-50 via-slate-50/50 to-transparent pointer-events-none">
+            </div>
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+
+            <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                 <div>
                     <div class="flex items-center gap-4 mb-4">
                         <span class="w-10 h-[2px] bg-accent-red"></span>
-                        <span class="text-xs uppercase tracking-[0.3em] font-mono text-gray-300 font-semibold">O que fabricamos na <strong class="text-accent-red">ALS</strong></span>
+                        <span class="text-xs uppercase tracking-[0.3em] font-mono text-gray-300 font-semibold">O que
+                            fabricamos na <strong class="text-accent-red">ALS</strong></span>
                     </div>
-                    <h2 class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight uppercase drop-shadow-md">
+                    <h2
+                        class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight uppercase drop-shadow-md">
                         Nossas Categorias
                     </h2>
                 </div>
-                <div class="text-gray-200 text-sm max-w-md font-normal bg-black/40 backdrop-blur-sm p-4 border-l-2 border-accent-red">
-                    <p class="font-bold text-accent-red uppercase tracking-wider text-xs font-mono mb-1">ALS Serralheria e Automação</p>
-                    <p class="text-xs text-gray-300">Fabricação própria de portões, esquadrias, corrimões e toldos sob medida em Curitiba.</p>
+                <div
+                    class="text-gray-200 text-sm max-w-md font-normal bg-black/40 backdrop-blur-sm p-4 border-l-2 border-accent-red">
+                    <p class="font-bold text-accent-red uppercase tracking-wider text-xs font-mono mb-1">ALS Serralheria
+                        e Automação</p>
+                    <p class="text-xs text-gray-300">Fabricação própria de portões, esquadrias, corrimões e toldos sob
+                        medida em Curitiba.</p>
                 </div>
             </div>
 
             <!-- Grid de 4 Grandes Categorias com Fundo Transparente e Bordas Brancas -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
+
                 <!-- Categoria 1: Portões -->
-                <div class="category-box group relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
+                <div
+                    class="category-box group reveal-on-scroll stagger-1 relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
                     <div>
-                        <div class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
+                        <div
+                            class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
                             <i class="fa-solid fa-door-open"></i>
                         </div>
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">01 &bull; Automação</span>
-                        <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">01
+                            &bull; Automação</span>
+                        <h3
+                            class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
                             Portões
                         </h3>
                         <p class="text-xs text-gray-200 leading-relaxed font-light">
-                            Portões esculturais, pivotantes, basculantes e deslizantes com motores ultrarrápidos e trilhos ocultos.
+                            Portões esculturais, pivotantes, basculantes e deslizantes com motores ultrarrápidos e
+                            trilhos ocultos.
                         </p>
                     </div>
-                    <a href="#projetos" onclick="filterGallery('portoes')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
+                    <a href="#projetos" onclick="filterGallery('portoes')"
+                        class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
                         Ver Modelos <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
 
                 <!-- Categoria 2: Esquadrias Metálicas -->
-                <div class="category-box group relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
+                <div
+                    class="category-box group reveal-on-scroll stagger-2 relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
                     <div>
-                        <div class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
+                        <div
+                            class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
                             <i class="fa-solid fa-border-all"></i>
                         </div>
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">02 &bull; Arquitetura</span>
-                        <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">02
+                            &bull; Arquitetura</span>
+                        <h3
+                            class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
                             Esquadrias Metálicas
                         </h3>
                         <p class="text-xs text-gray-200 leading-relaxed font-light">
-                            Perfis ultrafinos em aço e alumínio, portas pivotantes monumentais e caixilharia de grandes vãos.
+                            Perfis ultrafinos em aço e alumínio, portas pivotantes monumentais e caixilharia de grandes
+                            vãos.
                         </p>
                     </div>
-                    <a href="#projetos" onclick="filterGallery('esquadrias')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
+                    <a href="#projetos" onclick="filterGallery('esquadrias')"
+                        class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
                         Ver Modelos <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
 
                 <!-- Categoria 3: Corrimões & Guarda-Corpos -->
-                <div class="category-box group relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
+                <div
+                    class="category-box group reveal-on-scroll stagger-3 relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
                     <div>
-                        <div class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
+                        <div
+                            class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">03 &bull; Segurança & Design</span>
-                        <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">03
+                            &bull; Segurança & Design</span>
+                        <h3
+                            class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
                             Corrimões
                         </h3>
                         <p class="text-xs text-gray-200 leading-relaxed font-light">
-                            Corrimões e guarda-corpos sob medida em aço inox, ferro e vidro temperado para escadas, rampas e sacadas.
+                            Corrimões e guarda-corpos sob medida em aço inox, ferro e vidro temperado para escadas,
+                            rampas e sacadas.
                         </p>
                     </div>
-                    <a href="#projetos" onclick="filterGallery('corrimao')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
+                    <a href="#projetos" onclick="filterGallery('corrimao')"
+                        class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
                         Ver Modelos <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
 
                 <!-- Categoria 4: Toldos & Coberturas -->
-                <div class="category-box group relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
+                <div
+                    class="category-box group reveal-on-scroll stagger-4 relative p-8 flex flex-col justify-between h-[360px] rounded-sm bg-transparent border border-white hover:border-white shadow-2xl transition-all duration-500">
                     <div>
-                        <div class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
+                        <div
+                            class="w-14 h-14 bg-white/10 border border-white flex items-center justify-center text-accent-red text-2xl mb-6 group-hover:bg-accent-red group-hover:text-white transition-colors duration-300 rounded-sm">
                             <i class="fa-solid fa-umbrella"></i>
                         </div>
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">04 &bull; Coberturas</span>
-                        <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-2">04
+                            &bull; Coberturas</span>
+                        <h3
+                            class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-3 group-hover:text-accent-red transition-colors">
                             Toldos
                         </h3>
                         <p class="text-xs text-gray-200 leading-relaxed font-light">
-                            Toldos retráteis, articulados e fixos, além de coberturas metálicas em policarbonato e vidro para garagens.
+                            Toldos retráteis, articulados e fixos, além de coberturas metálicas em policarbonato e vidro
+                            para garagens.
                         </p>
                     </div>
-                    <a href="#projetos" onclick="filterGallery('toldos')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
+                    <a href="#projetos" onclick="filterGallery('toldos')"
+                        class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-red font-bold pt-4 group-hover:translate-x-1 transition-transform">
                         Ver Modelos <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
@@ -303,46 +388,58 @@
     <!-- ==================== SEÇÃO 3: A ASSINATURA (PROCESSO ARTESANAL VS. ALTA TECNOLOGIA) ==================== -->
     <section id="atelie" class="py-24 md:py-32 bg-slate-50 relative">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
+
             <!-- Cabeçalho da Seção -->
-            <div class="mb-16 md:mb-20 text-left">
+            <div class="reveal-on-scroll mb-16 md:mb-20 text-left">
                 <div class="flex items-center gap-4 mb-4">
                     <span class="w-10 h-[2px] bg-accent-red"></span>
-                    <span class="text-xs uppercase tracking-[0.3em] font-mono text-slate-500 font-semibold">A Assinatura <strong class="text-accent-red">ALS</strong></span>
+                    <span class="text-xs uppercase tracking-[0.3em] font-mono text-slate-500 font-semibold">A Assinatura
+                        <strong class="text-accent-red">ALS</strong></span>
                 </div>
                 <!-- Título (H2 Exato) -->
-                <h2 class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase max-w-3xl leading-tight">
+                <h2
+                    class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase max-w-3xl leading-tight">
                     Do traço artesanal à automação invisível.
                 </h2>
             </div>
 
             <!-- Layout: Tela Dividida (Split Screen) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                
+
                 <!-- Lado 1: Croqui / Desenho Arquitetônico Feito à Mão -->
-                <div class="relative group overflow-hidden border border-slate-200 bg-white p-3 sm:p-4 shadow-xl rounded-sm">
+                <div
+                    class="reveal-on-scroll stagger-1 relative group overflow-hidden border border-slate-200 bg-white p-3 sm:p-4 shadow-xl rounded-sm">
                     <div class="relative h-[380px] sm:h-[480px] w-full overflow-hidden bg-slate-100 rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" 
-                             alt="Desenho técnico e croqui artesanal de portão monumental" 
-                             class="w-full h-full object-cover filter contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop"
+                            alt="Desenho técnico e croqui artesanal de portão monumental"
+                            class="w-full h-full object-cover filter contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-slate-900/10"></div>
-                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 border-l-4 border-accent-red shadow-lg">
-                            <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-1">Fase 01 &bull; Conceituação</span>
-                            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Croqui & Estudo de Proporções Artesanal</h3>
+                        <div
+                            class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 border-l-4 border-accent-red shadow-lg">
+                            <span
+                                class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-1">Fase
+                                01 &bull; Conceituação</span>
+                            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Croqui & Estudo de
+                                Proporções Artesanal</h3>
                         </div>
                     </div>
                 </div>
 
                 <!-- Lado 2: O Portão Real Instalado & Conteúdo de Apoio -->
-                <div class="flex flex-col justify-center space-y-8">
-                    <div class="relative group overflow-hidden border border-slate-200 bg-white p-3 sm:p-4 shadow-xl rounded-sm">
+                <div class="reveal-on-scroll stagger-2 flex flex-col justify-center space-y-8">
+                    <div
+                        class="relative group overflow-hidden border border-slate-200 bg-white p-3 sm:p-4 shadow-xl rounded-sm">
                         <div class="relative h-[280px] sm:h-[320px] w-full overflow-hidden rounded-sm">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop" 
-                                 alt="Portão real instalado em fachada de luxo" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 border-l-4 border-accent-red shadow-lg">
-                                <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-1">Fase 02 &bull; Execução Impecável</span>
-                                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Portão Real Instalado na Fachada</h3>
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+                                alt="Portão real instalado em fachada de luxo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div
+                                class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 border-l-4 border-accent-red shadow-lg">
+                                <span
+                                    class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold block mb-1">Fase
+                                    02 &bull; Execução Impecável</span>
+                                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Portão Real
+                                    Instalado na Fachada</h3>
                             </div>
                         </div>
                     </div>
@@ -350,13 +447,19 @@
                     <!-- Texto de Apoio Exato -->
                     <div class="bg-white border border-slate-200 p-8 shadow-sm rounded-sm">
                         <p class="text-slate-700 font-normal text-base md:text-lg leading-relaxed">
-                            Na <strong class="text-accent-red font-bold">ALS</strong>, não trabalhamos com catálogos prontos. Cada fachada e sistema de acesso nasce de um estudo de proporções exclusivo, desenhado para se integrar perfeitamente à identidade da sua obra.
+                            Na <strong class="text-accent-red font-bold">ALS</strong>, não trabalhamos com catálogos
+                            prontos. Cada fachada e sistema de acesso nasce de um estudo de proporções exclusivo,
+                            desenhado para se integrar perfeitamente à identidade da sua obra.
                         </p>
-                        
-                        <div class="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600 font-mono font-medium">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-red"></i> Portões & Motores</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-red"></i> Esquadrias & Toldos</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-red"></i> Corrimões Inox</span>
+
+                        <div
+                            class="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600 font-mono font-medium">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-red"></i>
+                                Portões & Motores</span>
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-red"></i>
+                                Esquadrias & Toldos</span>
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-red"></i>
+                                Corrimões Inox</span>
                         </div>
                     </div>
 
@@ -374,15 +477,18 @@
     <!-- ==================== SEÇÃO 4: GALERIA DE PROJETOS (OBRAS COM ABAS DE FILTRO) ==================== -->
     <section id="projetos" class="py-24 md:py-32 bg-white relative">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
+
             <!-- Cabeçalho da Galeria -->
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
                     <div class="flex items-center gap-4 mb-4">
                         <span class="w-10 h-[2px] bg-accent-red"></span>
-                        <span class="text-xs uppercase tracking-[0.3em] font-mono text-slate-500 font-semibold">Portfólio de Obras <strong class="text-accent-red">ALS</strong></span>
+                        <span
+                            class="text-xs uppercase tracking-[0.3em] font-mono text-slate-500 font-semibold">Portfólio
+                            de Obras <strong class="text-accent-red">ALS</strong></span>
                     </div>
-                    <h2 class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
+                    <h2
+                        class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
                         Galeria de Projetos
                     </h2>
                 </div>
@@ -392,182 +498,237 @@
             </div>
 
             <!-- Abas de Filtro por Categoria -->
-            <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 pb-4 border-b border-slate-200">
-                <button onclick="filterGallery('all')" class="gallery-tab active text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-accent-red bg-accent-red text-white font-bold rounded-sm shadow-sm">
+            <div
+                class="reveal-on-scroll stagger-1 flex flex-wrap items-center gap-2 sm:gap-3 mb-10 pb-4 border-b border-slate-200">
+                <button onclick="filterGallery('all')"
+                    class="gallery-tab active text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-accent-red bg-accent-red text-white font-bold rounded-sm shadow-sm">
                     Todos os Projetos
                 </button>
-                <button onclick="filterGallery('portoes')" class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
+                <button onclick="filterGallery('portoes')"
+                    class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
                     Portões
                 </button>
-                <button onclick="filterGallery('esquadrias')" class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
+                <button onclick="filterGallery('esquadrias')"
+                    class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
                     Esquadrias Metálicas
                 </button>
-                <button onclick="filterGallery('corrimao')" class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
+                <button onclick="filterGallery('corrimao')"
+                    class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
                     Corrimões
                 </button>
-                <button onclick="filterGallery('toldos')" class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
+                <button onclick="filterGallery('toldos')"
+                    class="gallery-tab text-xs font-mono uppercase tracking-widest px-5 py-2.5 border border-slate-300 bg-white text-slate-700 hover:border-accent-red hover:text-accent-red font-semibold rounded-sm shadow-sm">
                     Toldos & Coberturas
                 </button>
             </div>
 
             <!-- Layout: Grid Minimalista Estilo Revista de Arquitetura -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="gallery-grid">
-                
-                <!-- Item 1: Portões - Portão Escultural Clássico -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="portoes">
-                    <img src="assets/portao-classico-luxo.jpg" 
-                         alt="Portão Escultural Clássico sob Medida" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Portões &bull; Design Exclusivo</span>
-                        <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
+
+                <!-- Item 1: Portões - Showcase Dinâmico de Portões ALS (Alterna Fotos da Categoria) -->
+                <div id="portao-showcase-card"
+                    class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="portoes">
+                    <img id="portao-showcase-img" src="assets/portao-classico-luxo.jpg"
+                        alt="Portão Escultural Clássico sob Medida"
+                        class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+
+                    <!-- Badge indicador de modelos em rotação -->
+                    <div
+                        class="absolute top-4 right-4 z-10 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 text-[10px] font-mono text-white flex items-center gap-1.5 shadow-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-red animate-pulse"></span>
+                        <span id="portao-showcase-count">Portões ALS</span>
+                    </div>
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Portões
+                            &bull; Design Exclusivo</span>
+                        <h3 id="portao-showcase-title"
+                            class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Portão Escultural Clássico
                         </h3>
-                        <p class="text-xs text-slate-300 font-light mb-4">
+                        <p id="portao-showcase-desc" class="text-xs text-slate-300 font-light mb-4">
                             Serralheria artística feita à mão com pintura eletrostática e automação invisível.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
                 <!-- Item 2: Esquadrias Minimalistas -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="esquadrias">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Esquadrias Minimalistas" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Esquadrias Metálicas</span>
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="esquadrias">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
+                        alt="Esquadrias Minimalistas"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Esquadrias
+                            Metálicas</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Esquadrias Minimalistas
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
                             Perfis ultralight de alta carga integrados à fachada de concreto aparente.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
-                <!-- Item 3: Portões - Portão Monolítico Automatizado -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="portoes">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Portão Monolítico Automatizado" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Portões &bull; Automação</span>
+                <!-- Item 3: Portões - Portão Monolítico Horizontal Automatizado (Foto Real da ALS) -->
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="portoes">
+                    <img src="assets/portao-moderno-luxo.jpg" alt="Portão Monolítico Horizontal Automatizado ALS"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Portões
+                            &bull; Automação</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
-                            Portão Monolítico Automatizado
+                            Portão Monolítico Horizontal
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
-                            Sem emendas visíveis, trilhos embutidos e acionamento ultra-silencioso.
+                            Design contemporâneo em lâminas horizontais com perfis de ventilação superior/inferior,
+                            pintura eletrostática preto fosco e automação embutida.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
                 <!-- Item 4: Corrimões & Guarda-Corpos -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="corrimao">
-                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Corrimão Escultural em Aço Inox" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Corrimões & Guarda-Corpos</span>
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="corrimao">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1000&auto=format&fit=crop"
+                        alt="Corrimão Escultural em Aço Inox"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Corrimões
+                            & Guarda-Corpos</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Corrimão Escultural em Inox
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
                             Estrutura contínua em aço escovado com fixação invisível para escadas monumentais.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
                 <!-- Item 5: Toldos & Coberturas -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="toldos">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Toldo Retrátil Motorizado" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Toldos & Coberturas</span>
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="toldos">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop"
+                        alt="Toldo Retrátil Motorizado"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Toldos
+                            & Coberturas</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Toldo Retrátil Motorizado
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
                             Lona técnica de alta densidade com estrutura de alumínio e acionamento inteligente.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
                 <!-- Item 6: Esquadrias - Portas Pivotantes -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="esquadrias">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Porta Pivotante Monumental" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Esquadrias Metálicas</span>
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="esquadrias">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop"
+                        alt="Porta Pivotante Monumental"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Esquadrias
+                            Metálicas</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Porta Pivotante Monumental
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
                             Pivô de rolamento duplo para portas de até 6 metros de altura com vedação total.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
                 <!-- Item 7: Corrimões - Guarda-Corpo Panorâmico -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="corrimao">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Guarda-Corpo Panorâmico" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Corrimões & Sacadas</span>
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="corrimao">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
+                        alt="Guarda-Corpo Panorâmico"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Corrimões
+                            & Sacadas</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Guarda-Corpo Panorâmico
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
                             Perfil inferior embutido e montantes em aço com vidro laminado temperado.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
                 </div>
 
                 <!-- Item 8: Toldos & Brise Motorizado -->
-                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm" data-category="toldos">
-                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1000&auto=format&fit=crop" 
-                         alt="Brise Motorizado Pivotante" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
-                        <span class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Toldos & Brises</span>
+                <div class="gallery-card relative group overflow-hidden h-[460px] cursor-pointer shadow-md rounded-sm"
+                    data-category="toldos">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1000&auto=format&fit=crop"
+                        alt="Brise Motorizado Pivotante"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 border-b-4 border-accent-red">
+                        <span
+                            class="text-[10px] font-mono text-accent-red uppercase tracking-widest font-bold mb-2">Toldos
+                            & Brises</span>
                         <h3 class="font-montserrat text-xl font-bold text-white uppercase tracking-wider mb-2">
                             Brise Motorizado Pivotante
                         </h3>
                         <p class="text-xs text-slate-300 font-light mb-4">
                             Lâminas verticais de grande extensão sincronizadas por central inteligente.
                         </p>
-                        <span class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
+                        <span
+                            class="text-[10px] uppercase tracking-widest text-accent-red font-bold flex items-center gap-2">
                             Ver Detalhes <i class="fa-solid fa-arrow-right text-[9px]"></i>
                         </span>
                     </div>
@@ -585,14 +746,16 @@
     <!-- ==================== SEÇÃO LOCALIZAÇÃO & DISTÂNCIA (GOOGLE MAPS) ==================== -->
     <section id="localizacao" class="py-24 md:py-32 bg-slate-50 relative">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+
+            <div class="reveal-on-scroll flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
                 <div>
                     <div class="flex items-center gap-4 mb-4">
                         <span class="w-10 h-[2px] bg-accent-red"></span>
-                        <span class="text-xs uppercase tracking-[0.3em] font-mono text-slate-500 font-semibold">Nossa Fábrica & Raio de Atendimento</span>
+                        <span class="text-xs uppercase tracking-[0.3em] font-mono text-slate-500 font-semibold">Nossa
+                            Fábrica & Raio de Atendimento</span>
                     </div>
-                    <h2 class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
+                    <h2
+                        class="font-montserrat text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
                         Onde Estamos em Curitiba
                     </h2>
                 </div>
@@ -605,13 +768,15 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                
+
                 <!-- Card de Informações e Calculadora de Distância -->
-                <div class="lg:col-span-5 bg-white border border-slate-200 p-8 sm:p-10 flex flex-col justify-between shadow-xl rounded-sm">
-                    
+                <div
+                    class="reveal-on-scroll stagger-1 lg:col-span-5 bg-white border border-slate-200 p-8 sm:p-10 flex flex-col justify-between shadow-xl rounded-sm">
+
                     <div class="space-y-6">
                         <div>
-                            <span class="text-[11px] font-mono uppercase tracking-widest text-accent-red font-bold block mb-1">
+                            <span
+                                class="text-[11px] font-mono uppercase tracking-widest text-accent-red font-bold block mb-1">
                                 ALS Serralheria e Automação
                             </span>
                             <h3 class="font-montserrat text-2xl font-bold text-slate-900 mb-2">
@@ -624,17 +789,21 @@
 
                         <div class="pt-4 border-t border-slate-200 space-y-3">
                             <div class="flex items-center gap-3 text-slate-700 text-sm">
-                                <div class="w-8 h-8 rounded-full bg-accent-red/10 text-accent-red flex items-center justify-center font-bold">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-accent-red/10 text-accent-red flex items-center justify-center font-bold">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
                                     <span class="text-xs text-slate-400 font-mono block">Telefone / WhatsApp</span>
-                                    <a href="https://wa.me/55419999999" target="_blank" class="font-bold text-slate-900 hover:text-accent-red transition-colors">41 9999999</a>
+                                    <a href="https://wa.me/55419999999" target="_blank"
+                                        class="font-bold text-slate-900 hover:text-accent-red transition-colors">41
+                                        9999999</a>
                                 </div>
                             </div>
 
                             <div class="flex items-center gap-3 text-slate-700 text-sm">
-                                <div class="w-8 h-8 rounded-full bg-accent-red/10 text-accent-red flex items-center justify-center font-bold">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-accent-red/10 text-accent-red flex items-center justify-center font-bold">
                                     <i class="fa-solid fa-clock"></i>
                                 </div>
                                 <div>
@@ -647,12 +816,15 @@
                         <!-- Card de Distância: "estamos verificando a sua distancia de nós" -->
                         <div class="bg-slate-50 border-2 border-slate-200 p-5 rounded-sm shadow-sm space-y-3">
                             <div class="flex items-center justify-between">
-                                <span class="text-xs font-mono uppercase tracking-wider text-slate-600 font-bold">Cálculo de Proximidade</span>
+                                <span
+                                    class="text-xs font-mono uppercase tracking-wider text-slate-600 font-bold">Cálculo
+                                    de Proximidade</span>
                                 <span class="w-2 h-2 rounded-full bg-accent-red animate-ping"></span>
                             </div>
-                            
+
                             <div id="distance-badge" class="py-1">
-                                <div class="text-2xl sm:text-3xl font-extrabold font-montserrat text-accent-red" id="distance-value">
+                                <div class="text-2xl sm:text-3xl font-extrabold font-montserrat text-accent-red"
+                                    id="distance-value">
                                     Estamos verificando a sua distancia de nós
                                 </div>
                                 <div class="text-xs text-slate-600 font-medium mt-2" id="distance-time">
@@ -664,7 +836,8 @@
                                 Atendemos em Curitiba e regiões próximas com visita técnica no local da obra.
                             </div>
 
-                            <button id="btn-get-distance" class="w-full text-xs font-bold uppercase tracking-wider py-3.5 px-4 bg-slate-900 text-white hover:bg-accent-red transition-all duration-300 flex items-center justify-center cursor-pointer rounded-sm shadow-sm">
+                            <button id="btn-get-distance"
+                                class="w-full text-xs font-bold uppercase tracking-wider py-3.5 px-4 bg-slate-900 text-white hover:bg-accent-red transition-all duration-300 flex items-center justify-center cursor-pointer rounded-sm shadow-sm">
                                 <i class="fa-solid fa-location-crosshairs mr-2 text-accent-red"></i>
                                 <span>Verificar Minha Distância da ALS</span>
                             </button>
@@ -673,14 +846,13 @@
 
                     <!-- Botão de Traçar Rota Externa -->
                     <div class="pt-6 mt-6 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Professor+Jose+Demeterco+190+Cajuru+Curitiba+PR" 
-                           target="_blank" 
-                           class="flex-1 text-center text-xs font-bold uppercase tracking-wider py-3.5 px-4 bg-accent-red text-white hover:bg-accent-red-hover transition-colors shadow-md rounded-sm">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Professor+Jose+Demeterco+190+Cajuru+Curitiba+PR"
+                            target="_blank"
+                            class="flex-1 text-center text-xs font-bold uppercase tracking-wider py-3.5 px-4 bg-accent-red text-white hover:bg-accent-red-hover transition-colors shadow-md rounded-sm">
                             <i class="fa-solid fa-route mr-2"></i> Abrir Google Maps
                         </a>
-                        <a href="https://wa.me/55419999999" 
-                           target="_blank" 
-                           class="flex-1 text-center text-xs font-bold uppercase tracking-wider py-3.5 px-4 bg-slate-100 border border-slate-300 text-slate-800 hover:bg-slate-200 transition-colors rounded-sm">
+                        <a href="https://wa.me/55419999999" target="_blank"
+                            class="flex-1 text-center text-xs font-bold uppercase tracking-wider py-3.5 px-4 bg-slate-100 border border-slate-300 text-slate-800 hover:bg-slate-200 transition-colors rounded-sm">
                             <i class="fa-brands fa-whatsapp mr-2 text-accent-red"></i> Contato Direto
                         </a>
                     </div>
@@ -688,12 +860,11 @@
                 </div>
 
                 <!-- Embed Google Maps Interativo -->
-                <div class="lg:col-span-7 h-[420px] lg:h-auto min-h-[450px] map-container border border-slate-200 shadow-xl rounded-sm overflow-hidden relative">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.879796030997!2d-49.2295627237894!3d-25.442253377553538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4e0ebf9aa03%3A0x6b2e3e5b306b3a2!2sR.%20Prof.%20Jos%C3%A9%20Demeterco%2C%20190%20-%20Cajuru%2C%20Curitiba%20-%20PR%2C%2082900-340!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
+                <div
+                    class="lg:col-span-7 h-[420px] lg:h-auto min-h-[450px] map-container border border-slate-200 shadow-xl rounded-sm overflow-hidden relative">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.879796030997!2d-49.2295627237894!3d-25.442253377553538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4e0ebf9aa03%3A0x6b2e3e5b306b3a2!2sR.%20Prof.%20Jos%C3%A9%20Demeterco%2C%20190%20-%20Cajuru%2C%20Curitiba%20-%20PR%2C%2082900-340!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                         title="Mapa de Localização ALS Serralheria e Automação">
                     </iframe>
                 </div>
@@ -705,29 +876,34 @@
 
     <!-- ==================== RODAPÉ INSTITUCIONAL (FOOTER) ==================== -->
     <footer class="bg-slate-900 py-16 text-slate-400 text-xs border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10 items-center justify-between">
-            
+        <div
+            class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10 items-center justify-between">
+
             <div class="flex items-center gap-4">
-                <div class="w-12 h-12 flex items-center justify-center">
-                    <img src="assets/logo.png" alt="ALS Logo" class="w-full h-full object-contain filter brightness-125">
-                </div>
+
                 <div class="flex flex-col">
                     <!-- Nome da empresa em Vermelho -->
-                    <span class="font-montserrat font-bold text-sm text-accent-red uppercase tracking-wider">ALS Serralheria e Automação</span>
+                    <span class="font-montserrat font-bold text-sm text-accent-red uppercase tracking-wider">ALS
+                        Serralheria e Automação</span>
                     <span class="text-[11px] text-slate-400 font-mono">Curitiba &bull; Paraná</span>
                 </div>
             </div>
 
             <div class="text-center text-slate-400 space-y-1">
                 <p class="font-medium text-slate-300">Rua Professor José Demeterco, 190 - Cajuru, Curitiba - PR</p>
-                <p>&copy; 2026 <strong class="text-accent-red">ALS Serralheria e Automação</strong>. Todos os direitos reservados.</p>
+                <p>&copy; 2026 <strong class="text-accent-red">ALS Serralheria e Automação</strong>. Todos os direitos
+                    reservados.</p>
                 <p class="text-[11px] text-slate-500">Atendemos Curitiba e regiões próximas.</p>
             </div>
 
             <div class="flex items-center justify-end space-x-6">
-                <a href="https://wa.me/55419999999" target="_blank" class="text-slate-300 hover:text-accent-red transition-colors text-lg" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" class="text-slate-300 hover:text-accent-red transition-colors text-lg" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-slate-300 hover:text-accent-red transition-colors text-lg" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.me/55419999999" target="_blank"
+                    class="text-slate-300 hover:text-accent-red transition-colors text-lg" aria-label="WhatsApp"><i
+                        class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="text-slate-300 hover:text-accent-red transition-colors text-lg"
+                    aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-slate-300 hover:text-accent-red transition-colors text-lg"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </div>
 
         </div>
@@ -736,4 +912,5 @@
     <!-- Scripts JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>

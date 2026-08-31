@@ -3,6 +3,26 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Scroll Reveal Observer (Animação suave de baixo para cima com transparência ao rolar a página)
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+    }
+
     // 1. Header Sticky Effect
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
@@ -237,24 +257,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. VIDEO SCROLL SCRUBBING ENGINE (MÁSCARA DE SOLDA ALS)
-    // Refatoração técnica:
-    // - Referência ao container e ao elemento de vídeo
-    // - EventListener de scroll na janela
-    // - Cálculo matemático da fração do scroll (0.0 a 1.0) dentro do container de 300vh
-    // - video.currentTime = (fraçãoDoScroll * video.duration)
-    // - requestAnimationFrame para garantir fluidez perfeita ao descer e subir
+    // 7. ULTRA-SMOOTH VIDEO SCROLL SCRUBBING ENGINE (hero-video-smooth)
+    // - O vídeo "hero-video-smooth" é controlado diretamente pelo scroll do mouse/touch/teclado.
+    // - Enquanto o usuário rola a página, a tela permanece fixada na Hero Section (Head do site).
+    // - O vídeo avança proporcionalmente ao scroll até ser 100% reproduzido.
+    // - Quando o usuário para de rolar, o vídeo para no frame exato.
+    // - Ao atingir o final da reprodução (100%), o scroll continua naturalmente para o restante do site.
     (function initVideoScrollScrubbing() {
         const container = document.getElementById('hero-scroll-container');
-        const video = document.getElementById('hero-scroll-video');
+        const video = document.getElementById('hero-video-smooth') || document.getElementById('hero-scroll-video');
+        const scrollHint = document.getElementById('hero-scroll-hint');
 
         if (!container || !video) return;
 
-        // Garante que o vídeo fique pausado (sem tocar sozinho)
+        // Garante que o vídeo fique pausado (sem autoplay livre)
         video.pause();
 
-        let isTicking = false;
         let targetTime = 0;
+        let isSeeking = false;
+        let rafId = null;
+
+        function renderFrame() {
+            if (!video.duration || isNaN(video.duration)) {
+                rafId = null;
+                return;
+            }
+
+            const diff = targetTime - video.currentTime;
+
+            // Se houver diferença perceptível e o decodificador do navegador não estiver travado
+            if (Math.abs(diff) > 0.005) {
+                if (!video.seeking) {
+                    const step = diff * 0.4;
+                    const newTime = Math.abs(diff) < 0.02 ? targetTime : video.currentTime + step;
+                    
+                    if (typeof video.fastSeek === 'function') {
+                        video.fastSeek(newTime);
+                    } else {
+                        video.currentTime = newTime;
+                    }
+                }
+                rafId = window.requestAnimationFrame(renderFrame);
+            } else {
+                rafId = null;
+            }
+        }
 
         function updateVideoProgress() {
             if (!video.duration || isNaN(video.duration)) return;
@@ -264,40 +311,148 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (totalScrollRange <= 0) return;
 
-            // Calcula a fração do scroll do usuário dentro da sessão (0.0 no topo até 1.0 no fim)
+            // Calcula a fração do scroll (0.0 no início do site até 1.0 no término do container de 300vh)
             const rawFraction = -rect.top / totalScrollRange;
             const scrollFraction = Math.max(0, Math.min(1, rawFraction));
 
-            // Vincula a fração de scroll diretamente ao tempo do vídeo:
-            // video.currentTime = (fraçãoDoScroll * video.duration)
-            targetTime = scrollFraction * video.duration;
+            // Mapeia para toda a extensão do vídeo
+            targetTime = scrollFraction * Math.max(0, video.duration - 0.02);
 
-            // Utiliza requestAnimationFrame para renderização suave a 60fps/120fps
-            if (!isTicking) {
-                isTicking = true;
-                window.requestAnimationFrame(() => {
-                    if (video.duration && !isNaN(targetTime)) {
-                        video.currentTime = targetTime;
-                    }
-                    isTicking = false;
-                });
+            // Oculta gradualmente o hint de scroll
+            if (scrollHint) {
+                if (scrollFraction > 0.04) {
+                    scrollHint.style.opacity = '0';
+                    scrollHint.style.pointerEvents = 'none';
+                } else {
+                    scrollHint.style.opacity = '1';
+                }
+            }
+
+            if (!rafId) {
+                rafId = window.requestAnimationFrame(renderFrame);
             }
         }
 
-        // Eventos para garantir que o vídeo esteja pronto e sincronizado
-        video.addEventListener('loadedmetadata', updateVideoProgress);
-        video.addEventListener('loadeddata', updateVideoProgress);
-        video.addEventListener('canplay', updateVideoProgress);
-        
-        if (video.readyState >= 2) {
-            updateVideoProgress();
+        // Listener de busca (seek) para manter a fluidez sem drops
+        video.addEventListener('seeking', () => {
+            isSeeking = true;
+        });
+
+        video.addEventListener('seeked', () => {
+            isSeeking = false;
+            if (Math.abs(targetTime - video.currentTime) > 0.01 && !rafId) {
+                rafId = window.requestAnimationFrame(renderFrame);
+            }
+        });
+
+        // Inicialização com primeiro frame pronto para exibição
+        const onReady = () => {
+            if (video.duration && !isNaN(video.duration)) {
+                if (video.currentTime === 0) {
+                    video.currentTime = 0.001;
+                }
+                updateVideoProgress();
+            }
+        };
+
+        video.addEventListener('loadedmetadata', onReady);
+        video.addEventListener('loadeddata', onReady);
+        video.addEventListener('canplay', onReady);
+        video.addEventListener('canplaythrough', onReady);
+
+        if (video.readyState >= 1) {
+            onReady();
         }
 
-        // Monitora o scroll e o resize da janela
+        // Monitora o scroll da página e o redimensionamento da janela
         window.addEventListener('scroll', updateVideoProgress, { passive: true });
         window.addEventListener('resize', updateVideoProgress, { passive: true });
 
-        // Chamada inicial
+        // Chamada imediata
         updateVideoProgress();
+    })();
+
+    // 8. DYNAMIC PORTÕES SHOWCASE ROTATOR
+    // Na seção "Todos os Projetos", o card de destaque de portões alterna dinamicamente
+    // entre todas as fotos da categoria "Portões" (Portão Clássico, Portão Monolítico Moderno, etc.),
+    // garantindo que a foto nunca seja sempre a mesma.
+    (function initPortoesRotator() {
+        const showcaseCard = document.getElementById('portao-showcase-card');
+        const showcaseImg = document.getElementById('portao-showcase-img');
+        const showcaseTitle = document.getElementById('portao-showcase-title');
+        const showcaseDesc = document.getElementById('portao-showcase-desc');
+        const showcaseCount = document.getElementById('portao-showcase-count');
+
+        if (!showcaseImg) return;
+
+        const portaoModels = [
+            {
+                src: "assets/portao-classico-luxo.jpg",
+                title: "Portão Escultural Clássico",
+                desc: "Serralheria artística feita à mão com pintura eletrostática e automação invisível.",
+                alt: "Portão Escultural Clássico sob Medida ALS"
+            },
+            {
+                src: "assets/portao-moderno-luxo.jpg",
+                title: "Portão Monolítico Horizontal",
+                desc: "Design contemporâneo em lâminas horizontais com perfis de ventilação e motor ultrarrápido.",
+                alt: "Portão Monolítico Horizontal sob Medida ALS"
+            }
+        ];
+
+        // Escolhe um índice aleatório no início para nunca iniciar sempre com a mesma foto
+        let currentIndex = Math.floor(Math.random() * portaoModels.length);
+
+        function updateCard(index, withTransition = true) {
+            const item = portaoModels[index];
+            if (!item) return;
+
+            if (withTransition) {
+                showcaseImg.style.transition = 'opacity 0.4s ease, transform 0.5s ease';
+                showcaseImg.style.opacity = '0.2';
+                showcaseImg.style.transform = 'scale(0.96)';
+
+                setTimeout(() => {
+                    showcaseImg.src = item.src;
+                    showcaseImg.alt = item.alt;
+                    if (showcaseTitle) showcaseTitle.textContent = item.title;
+                    if (showcaseDesc) showcaseDesc.textContent = item.desc;
+                    if (showcaseCount) showcaseCount.textContent = `Modelo ${index + 1} de ${portaoModels.length}`;
+                    showcaseImg.style.opacity = '1';
+                    showcaseImg.style.transform = 'scale(1)';
+                }, 350);
+            } else {
+                showcaseImg.src = item.src;
+                showcaseImg.alt = item.alt;
+                if (showcaseTitle) showcaseTitle.textContent = item.title;
+                if (showcaseDesc) showcaseDesc.textContent = item.desc;
+                if (showcaseCount) showcaseCount.textContent = `Modelo ${index + 1} de ${portaoModels.length}`;
+            }
+        }
+
+        // Aplicação inicial imediata
+        updateCard(currentIndex, false);
+
+        // Rotação contínua e suave a cada 4.5 segundos
+        let rotationTimer = setInterval(() => {
+            currentIndex = (currentIndex + 1) % portaoModels.length;
+            updateCard(currentIndex, true);
+        }, 4500);
+
+        // Ao clicar no card, avança imediatamente para a próxima foto de portão
+        if (showcaseCard) {
+            showcaseCard.addEventListener('click', (e) => {
+                // Se não clicou no link direto
+                if (!e.target.closest('a')) {
+                    clearInterval(rotationTimer);
+                    currentIndex = (currentIndex + 1) % portaoModels.length;
+                    updateCard(currentIndex, true);
+                    rotationTimer = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % portaoModels.length;
+                        updateCard(currentIndex, true);
+                    }, 4500);
+                }
+            });
+        }
     })();
 });

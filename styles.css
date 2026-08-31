@@ -104,7 +104,51 @@ body {
   transform: translateY(0);
 }
 
-/* 5. ANIMAÇÃO DE ZOOM SUAVE NA HERO */
+/* 5. ANIMAÇÃO DE ENTRADA AO CARREGAR (FADE-IN UP DE BAIXO PARA CIMA) */
+@keyframes fadeInUpLuxury {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 35px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUpLuxury 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Animações ao rolar a página (Scroll Reveal) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.stagger-1 { transition-delay: 100ms; }
+.stagger-2 { transition-delay: 200ms; }
+.stagger-3 { transition-delay: 300ms; }
+.stagger-4 { transition-delay: 400ms; }
+
 @keyframes subtleZoom {
   0% { transform: scale(1); }
   100% { transform: scale(1.06); }
@@ -112,6 +156,14 @@ body {
 
 .animate-subtle-zoom {
   animation: subtleZoom 25s infinite alternate ease-in-out;
+}
+
+.hero-video-smooth {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* 6. GALERIA DE PROJETOS TEMA BRANCO */
