@@ -76,60 +76,60 @@
     <header id="main-header"
         class="animate-fade-in-up delay-200 sticky top-0 left-0 w-full z-50 transition-all duration-300 border-b border-slate-200 bg-white shadow-sm"
         style="background-color: #ffffff !important; background: #ffffff !important;">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
-            <!-- Lado Esquerdo: Logomarca ALS (PNG Transparente com Nome da Empresa em Vermelho) -->
-            <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-28 flex items-center justify-between">
+            <!-- Lado Esquerdo: Logomarca ALS Ampliada (PNG Transparente com Nome da Empresa em Vermelho) -->
+            <a href="#" class="flex items-center gap-4 group focus:outline-none">
                 <div
-                    class="relative w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                    class="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                     <img src="assets/logo.png" alt="ALS Serralheria e Automação" class="w-full h-full object-contain">
                 </div>
                 <div class="flex flex-col">
                     <!-- Nome da empresa em VERMELHO -->
                     <span
-                        class="font-montserrat font-extrabold text-xl tracking-wider text-accent-red uppercase transition-colors">ALS</span>
-                    <span class="text-[9px] tracking-[0.25em] text-accent-red uppercase font-bold">Serralheria &
+                        class="font-montserrat font-black text-2xl sm:text-3xl tracking-wider text-accent-red uppercase transition-colors leading-none mb-1">ALS</span>
+                    <span class="text-[11px] sm:text-xs tracking-[0.25em] text-accent-red uppercase font-black">Serralheria &
                         Automação</span>
                 </div>
             </a>
 
-            <!-- Centro/Direita: Menu de Navegação & Botão de Contato com +3px de espaçamento -->
+            <!-- Centro/Direita: Menu de Navegação & Botão de Contato Ampliados -->
             <div class="hidden md:flex items-center">
                 <nav
-                    class="flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700">
+                    class="flex items-center space-x-9 text-sm font-bold uppercase tracking-[0.2em] text-slate-800">
                     <a href="#categorias" class="hover:text-accent-red transition-colors py-2 relative group">
                         Categorias
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-[3px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#projetos" class="hover:text-accent-red transition-colors py-2 relative group">
                         Projetos
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-[3px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#atelie" class="hover:text-accent-red transition-colors py-2 relative group">
                         O Ateliê
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-[3px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#localizacao" class="hover:text-accent-red transition-colors py-2 relative group">
                         Localização
                         <span
-                            class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute bottom-0 left-0 w-0 h-[3px] bg-accent-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </nav>
 
-                <!-- Ação: Botão Vermelho Header com +3px de espaçamento adicional (ml-[35px]) -->
-                <div class="hidden lg:flex items-center ml-[35px]">
+                <!-- Ação: Botão Vermelho Header Ampliado -->
+                <div class="hidden lg:flex items-center ml-10">
                     <a href="https://wa.me/55419999999" target="_blank"
-                        class="btn-primary text-xs uppercase tracking-wider px-6 py-3.5 bg-accent-red text-white font-bold hover:bg-accent-red-hover transition-all duration-300 shadow-md flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        class="btn-primary text-sm uppercase tracking-wider px-7 py-4 bg-accent-red text-white font-extrabold hover:bg-accent-red-hover transition-all duration-300 shadow-lg hover:scale-105 flex items-center gap-3 rounded-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
                         <span>Entre em contato conosco: 41 9999999</span>
                     </a>
                 </div>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-slate-800 text-2xl focus:outline-none p-2"
+            <button id="mobile-menu-btn" class="md:hidden text-slate-800 text-3xl focus:outline-none p-2"
                 aria-label="Abrir Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
