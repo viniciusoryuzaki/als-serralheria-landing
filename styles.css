@@ -204,6 +204,29 @@ body {
   box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15), 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
+/* Ícones das Categorias: No estado normal ícone vermelho; no hover o quadrado preenche de vermelho e o ícone fica branco */
+.category-icon-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.category-icon-box i {
+  color: var(--accent-red) !important;
+  transition: color 0.3s ease;
+}
+
+.category-box:hover .category-icon-box,
+.category-icon-box:hover {
+  background-color: var(--accent-red) !important;
+  border-color: #FFFFFF !important;
+}
+
+.category-box:hover .category-icon-box i,
+.category-icon-box:hover i {
+  color: #FFFFFF !important;
+}
+
 /* 8. ABAS DE FILTRO DA GALERIA */
 .gallery-tab {
   cursor: pointer;
