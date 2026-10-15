@@ -152,74 +152,40 @@
     </header>
 
 
-    <!-- ==================== SEÇÃO 2: HERO SECTION COM MÁSCARA CONTROLADA POR SCROLL ==================== -->
-    <section id="hero-scroll-container" class="relative w-full bg-white"
-        style="height: 300vh; background-color: #FFFFFF;">
-        <!-- Container Sticky fixo na tela durante a rolagem de 300vh -->
-        <div id="hero-sticky-stage"
-            class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
-            style="background-color: #FFFFFF;">
+    <!-- ==================== SEÇÃO 2: HERO SECTION ==================== -->
+    <section id="hero" class="relative w-full py-24 md:py-32 lg:py-40 overflow-hidden" style="background-color: #FFFFFF;">
 
-            <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div class="flex flex-col items-start text-left space-y-5 max-w-2xl">
 
-                    <!-- Coluna Esquerda (Mensagens e Títulos) -->
-                    <div class="flex flex-col items-start text-left space-y-5">
+                <h1
+                    class="animate-fade-in-up delay-400 font-montserrat text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.15]">
+                    Engenharia de Precisão e Sistemas de Acesso Exclusivos.
+                </h1>
 
-                        <h1
-                            class="animate-fade-in-up delay-400 font-montserrat text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.15]">
-                            Engenharia de Precisão e Sistemas de Acesso Exclusivos.
-                        </h1>
+                <p
+                    class="animate-fade-in-up delay-500 text-slate-600 font-normal text-sm sm:text-base leading-relaxed max-w-xl">
+                    Transformamos aço em obras de arte arquitetônicas. Design feito à mão, automação de ponta e
+                    execução impecável.
+                </p>
 
-                        <p
-                            class="animate-fade-in-up delay-500 text-slate-600 font-normal text-sm sm:text-base leading-relaxed max-w-xl">
-                            Transformamos aço em obras de arte arquitetônicas. Design feito à mão, automação de ponta e
-                            execução impecável.
-                        </p>
-
-                        <!-- Botões de Ação -->
-                        <div
-                            class="animate-fade-in-up delay-600 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
-                            <a href="https://wa.me/55419999999" target="_blank"
-                                class="w-full sm:w-auto btn-primary inline-flex items-center justify-center text-xs sm:text-sm uppercase tracking-[0.15em] px-8 py-4 bg-accent-red text-white font-extrabold hover:bg-accent-red-hover transition-all duration-300 shadow-lg hover:scale-105 group rounded-sm gap-2.5">
-                                <i class="fa-brands fa-whatsapp text-lg"></i>
-                                <span>Solicite um orçamento agora</span>
-                            </a>
-                            <a href="#localizacao"
-                                class="w-full sm:w-auto inline-flex items-center justify-center text-xs sm:text-sm uppercase tracking-[0.15em] px-6 py-4 bg-white border border-slate-300 text-slate-900 font-bold hover:border-accent-red hover:text-accent-red transition-all duration-300 shadow-sm rounded-sm gap-2">
-                                <i class="fa-solid fa-location-dot text-accent-red text-base"></i>
-                                <span>Verificar endereço</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Coluna Direita (Vídeo da Máscara de Solda ALS Controlado por Scroll) -->
-                    <div class="animate-fade-in-up delay-500 relative flex items-center justify-center w-full">
-                        <div
-                            class="relative flex items-center justify-center w-full max-w-[360px] sm:max-w-[420px] md:max-w-[460px] aspect-square">
-                            <video id="hero-video-smooth"
-                                class="hero-video-smooth w-full h-full object-contain pointer-events-none select-none"
-                                src="assets/hero-video-smooth.mp4" muted playsinline webkit-playsinline preload="auto"
-                                disablepictureinpicture style="background: transparent; mix-blend-mode: multiply;">
-                                <source src="assets/hero-video-smooth.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-
+                <!-- Botões de Ação -->
+                <div
+                    class="animate-fade-in-up delay-600 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
+                    <a href="https://wa.me/55419999999" target="_blank"
+                        class="w-full sm:w-auto btn-primary inline-flex items-center justify-center text-xs sm:text-sm uppercase tracking-[0.15em] px-8 py-4 bg-accent-red text-white font-extrabold hover:bg-accent-red-hover transition-all duration-300 shadow-lg hover:scale-105 group rounded-sm gap-2.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Solicite um orçamento agora</span>
+                    </a>
+                    <a href="#localizacao"
+                        class="w-full sm:w-auto inline-flex items-center justify-center text-xs sm:text-sm uppercase tracking-[0.15em] px-6 py-4 bg-white border border-slate-300 text-slate-900 font-bold hover:border-accent-red hover:text-accent-red transition-all duration-300 shadow-sm rounded-sm gap-2">
+                        <i class="fa-solid fa-location-dot text-accent-red text-base"></i>
+                        <span>Verificar endereço</span>
+                    </a>
                 </div>
             </div>
-
-            <!-- Indicador sutil de scroll para guiar o usuário -->
-            <div id="hero-scroll-hint"
-                class="animate-fade-in-up delay-700 absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 pointer-events-none transition-opacity duration-500 z-20">
-                <span class="text-[10px] uppercase font-mono tracking-[0.25em] text-slate-500 font-semibold">Role a tela
-                    para baixo</span>
-                <div class="w-5 h-8 border-2 border-slate-300 rounded-full flex justify-center pt-1.5">
-                    <div class="w-1.5 h-2 bg-accent-red rounded-full animate-bounce"></div>
-                </div>
-            </div>
-
         </div>
+
     </section>
 
 
