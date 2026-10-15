@@ -3,7 +3,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Scroll Reveal Observer (Animação suave de baixo para cima com transparência ao rolar a página)
+    // 0. Scroll Reveal Observer (Animação suave com garantia de visibilidade imediata)
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -14,14 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -30px 0px'
+            threshold: 0.01,
+            rootMargin: '120px 0px 120px 0px'
         });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 100) {
+                el.classList.add('is-revealed');
+            } else {
+                revealObserver.observe(el);
+            }
+        });
     } else {
         revealElements.forEach(el => el.classList.add('is-revealed'));
     }
+
+    // Fallback de segurança: garante que todos os elementos estejam 100% visíveis
+    setTimeout(() => {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+    }, 800);
 
     // 1. Header Sticky Effect
     const header = document.getElementById('main-header');
@@ -255,6 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadText.textContent = "Anexar Projeto Arquitetônico";
             });
         }
+    }
 
     // 8. DYNAMIC PORTÕES SHOWCASE ROTATOR
     // Na seção "Todos os Projetos", o card de destaque de portões alterna dinamicamente
